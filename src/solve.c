@@ -44,8 +44,8 @@ void	ft_change_coordinates(t_tet **tet, int x, int y)
 	int	i;
 
 	i = 0;
-	pos_x = 100;
-	pos_y = 100;
+	pos_x = 500;
+	pos_y = 500;
 	while (i < 4)
 	{
 		if ((*tet)->x[i] < pos_x)
@@ -76,7 +76,8 @@ int		ft_check_tetri_in_map(char **map, t_tet *tet, int size)
 		x = 0;
 		while (x < size)
 		{
-			if (tet->y[i] < size && tet->x[i] < size && map[tet->y[i]][tet->x[i]] == '.')
+			if (tet->y[i] < size && tet->x[i] < size &&
+			map[tet->y[i]][tet->x[i]] == '.')
 			{
 				i++;
 				if (i == 4)
@@ -106,7 +107,8 @@ char	**ft_algorithm(char **tetri_map, t_tet *tet, int size)
 		{
 			ft_change_coordinates(&tet, x, y);
 			if (ft_check_tetri_in_map(tetri_map, tet, size))
-				map = ft_algorithm(ft_insert_tetri_chars(tetri_map, tet, size), tet->next, size);
+				map = ft_algorithm(ft_insert_tetri_chars(tetri_map, tet, size),
+				tet->next, size);
 			if (map)
 				return (map);
 			tetri_map = ft_remove_tetri_chars(tetri_map, tet, size);

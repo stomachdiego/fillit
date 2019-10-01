@@ -58,7 +58,7 @@ int		ft_check_char_a(char *memory, int j)
 				count++;
 			if ((i + j + 5) < (20 + j) && memory[i + j + 5] == '#')
 				count++;
-			if ((i + j - 5) >= (0 + j) && memory[i+ j - 5] == '#')
+			if ((i + j - 5) >= (0 + j) && memory[i + j - 5] == '#')
 				count++;
 		}
 		i++;
@@ -92,7 +92,6 @@ int		ft_check_count_chars(char *memory, int j)
 	if (a == 4 && point == 12 && n == 4)
 		return (1);
 	return (0);
-
 }
 
 int		ft_check_str(char *memory)
@@ -109,9 +108,10 @@ int		ft_check_str(char *memory)
 		i = 19;
 		if (memory[i + j] == '\n' && memory[i + j + 1] == '\0')
 			return (1);
-		if (memory[i + j] == '\n' && memory[i + j + 1] == '\n' && (memory[i + j + 2] == '.' || memory[i + j + 2] == '#'))
+		if (memory[i + j] == '\n' && memory[i + j + 1] == '\n' &&
+		(memory[i + j + 2] == '.' || memory[i + j + 2] == '#'))
 			j = j + 21;
-		else 
+		else
 			return (0);
 		i = 0;
 	}

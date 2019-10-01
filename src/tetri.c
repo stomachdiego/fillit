@@ -51,12 +51,12 @@ void	ft_char_a_coordinates(t_tet **tmp, char *str)
 t_tet	*ft_tetri_lists(char *str)
 {
 	int		c_tetri;
-	int		add21;
+	int		next_block;
 	char	c;
 	t_tet	*stock;
 	t_tet	*tmp;
 
-	add21 = 0;
+	next_block = 0;
 	c = 'A';
 	c_tetri = ft_tetri_count(str);
 	if (!(stock = (t_tet *)malloc(sizeof(t_tet))))
@@ -65,13 +65,13 @@ t_tet	*ft_tetri_lists(char *str)
 	while (c_tetri > 0)
 	{
 		tmp->c = c;
-		ft_char_a_coordinates(&tmp, ft_strsub(str, 0 + add21, 20));
+		ft_char_a_coordinates(&tmp, ft_strsub(str, 0 + next_block, 20));
 		if (!(tmp->next = (t_tet *)malloc(sizeof(t_tet))))
 			return (NULL);
 		tmp = tmp->next;
 		c_tetri--;
 		c++;
-		add21 = add21 + 21;
+		next_block = next_block + 21;
 	}
 	tmp->next = NULL;
 	return (stock);
